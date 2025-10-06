@@ -1,0 +1,37 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+             version="2.0">
+
+    <!--  transactions db-->
+    <!-- manual transaction -->
+    <persistence-unit name="bookrental-pu" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Register Entites-->
+        <!-- register here-->
+
+        <properties>
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/bookrental_db"/>
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="123"/>
+
+            <!-- Performance tuning -->
+            <property name="hibernate.jdbc.batch_size" value="30"/> <!-- ->100 / 30 = 3..4 -->
+            <property name="hibernate.order_inserts" value="true"/>
+            <property name="hibernate.order_updates" value="true"/>
+
+            <!-- Setting hbm2ddl to update to make jpa is always updating to database structure -->
+            <!-- Create, Update, Create-Update, Validate-->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+
+            <!-- SQL statement logging -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.highlight_sql" value="true"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
