@@ -20,7 +20,7 @@ public class MemberController {
         System.out.println("3. Delete Member");
         System.out.println("4. Find Member By Id");
         System.out.println("5. Find All Members");
-        System.out.println("6. Exit");
+        System.out.println("0. Go back");
         System.out.print("Please enter your choice: ");
 
         int choice = Integer.parseInt(scanner.nextLine());
@@ -55,9 +55,7 @@ public class MemberController {
         String email = scanner.nextLine();
         System.out.println("Please enter name: ");
         String name = scanner.nextLine();
-        Member member = new Member();
-        member.setEmail(email);
-        member.setName(name);
+        Member member = Member.builder().email(email).name(name).build();
         memberService.createMember(member);
         System.out.println("Member created");
     }
@@ -67,9 +65,12 @@ public class MemberController {
         System.out.println("Please enter id: ");
         Long id = Long.parseLong(scanner.nextLine());
         Member member = memberService.findById(id);
-        System.out.println("Please enter email: ");
+        System.out.println("Please enter email (enter to keep old value): ");
         String email = scanner.nextLine();
-        System.out.println("Please enter name: ");
+        if (email.isBlank()){
+            email = member.getEmail();
+        }
+        System.out.println("Please enter name (enter to keep old value): ");
         String name = scanner.nextLine();
         member.setEmail(email);
         member.setName(name);

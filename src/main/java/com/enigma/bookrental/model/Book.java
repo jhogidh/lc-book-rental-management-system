@@ -28,9 +28,6 @@ public class Book {
     @Column(name = "stock")
     private Integer stock;
 
-    @Column(name = "published_date", nullable = false)
-    private String publishedDate;
-
     @Column(name = "is_deleted")
     private Boolean isDeleted;
 
