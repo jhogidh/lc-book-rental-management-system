@@ -21,7 +21,7 @@ public class RentalService {
         this.bookService = bookService;
     }
 
-    public void borrowBook(Long bookId, Long memberId){
+    public void borrowBook(Long memberId, Long bookId){
         if(bookId == null || memberId == null){
             throw new IllegalArgumentException("book and member id can't be null");
         }
@@ -75,11 +75,11 @@ public class RentalService {
         rentalDAO.delete(id);
     }
 
-    public List<Rental> findActiveRentals(){
+    public List<Rental> findActive(){
         return rentalDAO.findAll().stream().filter(r -> r.getReturnDate() == null).toList();
     }
 
-    public List<Rental> findRentalsByMemberId(Long memberId){
+    public List<Rental> findByMember(Long memberId){
         return rentalDAO.findAll().stream().filter(r -> r.getMember().getId().equals(memberId)).toList();
     }
 
