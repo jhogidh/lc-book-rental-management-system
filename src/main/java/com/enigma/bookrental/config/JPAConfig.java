@@ -8,7 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class JPAConfig {
     private static final String PERSISTENCE_UNIT_NAME = "bookrental-pu";
-    private static  EntityManagerFactory emf;
+    private static EntityManagerFactory emf;
 
     private JPAConfig(){}
 
