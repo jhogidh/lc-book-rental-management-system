@@ -5,6 +5,7 @@ import com.enigma.bookrental.model.Member;
 import jakarta.persistence.EntityManager;
 
 import java.util.List;
+import java.util.Optional;
 
 public class MemberDAO implements BaseDAO<Member, Long>{
     private final EntityManager em = JPAConfig.getEm();
@@ -32,13 +33,13 @@ public class MemberDAO implements BaseDAO<Member, Long>{
     }
 
     @Override
-    public Member findById(Long id) {
+    public Optional<Member> findById(Long id) {
         Member member = em.find(Member.class, id);
         if(member != null && Boolean.TRUE.equals(member.getIsDeleted())){
             System.out.println("Member dengan id " + id + " sudah dihapus/tidak aktif.");
             return null;
         }
-        return member;
+        return Optional.ofNullable(member);
     }
 
     @Override
