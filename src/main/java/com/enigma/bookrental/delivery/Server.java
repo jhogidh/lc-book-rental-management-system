@@ -7,6 +7,7 @@ import com.enigma.bookrental.dao.RentalDAO;
 import com.enigma.bookrental.delivery.controller.BookController;
 import com.enigma.bookrental.delivery.controller.MemberController;
 import com.enigma.bookrental.delivery.controller.RentalController;
+import com.enigma.bookrental.delivery.controller.ReportController;
 import com.enigma.bookrental.service.BookService;
 import com.enigma.bookrental.service.MemberService;
 import com.enigma.bookrental.service.RentalService;
@@ -32,6 +33,7 @@ public class Server {
             System.out.println("1. Member Menu");
             System.out.println("2. Book Menu");
             System.out.println("3. Rental Menu");
+            System.out.println("4. Report Menu");
             System.out.println("0. EXIT");
             System.out.println();
             System.out.print("Choose menu: ");
@@ -40,6 +42,7 @@ public class Server {
                 case 1 -> new MemberController(memberService).showMenu();
                 case 2 -> new BookController(bookService).showMenu();
                 case 3 -> new RentalController(rentalService).showMenu();
+                case 4 -> new ReportController(bookService, memberService, rentalService).showMenu();
                 case 0 -> {
                     System.out.println("Thank you for using our service");
                     JPAConfig.closeEmf();
