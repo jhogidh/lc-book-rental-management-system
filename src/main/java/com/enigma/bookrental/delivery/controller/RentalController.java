@@ -13,6 +13,7 @@ public class RentalController {
     }
 
     public void showMenu(){
+        System.out.println();
         System.out.println("Welcome to Rental Menu");
         System.out.println("1. Borrow Book");
         System.out.println("2. Return Book");
@@ -20,6 +21,7 @@ public class RentalController {
         System.out.println("4. Show Active Rentals");
         System.out.println("5. Show Rentals By Member");
         System.out.println("0. Exit");
+        System.out.println();
         System.out.print("Please enter your choice: ");
         int choice = Integer.parseInt(scanner.nextLine());
         switch (choice){
@@ -48,6 +50,7 @@ public class RentalController {
     }
 
     public void borrowHandler(){
+        System.out.println();
         System.out.println("Borrow Book");
         System.out.println("Please enter member id: ");
         Long memberId = Long.parseLong(scanner.nextLine());
@@ -59,6 +62,7 @@ public class RentalController {
     }
 
     public void returnHandler(){
+        System.out.println();
         System.out.println("Return Book");
         System.out.println("Please enter rental id: ");
         Long rentalId = Long.parseLong(scanner.nextLine());
@@ -68,16 +72,19 @@ public class RentalController {
     }
 
     public void showAllHandler(){
+        System.out.println();
         System.out.println("Show All Rentals");
         rentalService.findAll().forEach(System.out::println);
     }
 
     public void showActiveHandler(){
+        System.out.println();
         System.out.println("Show Active Rentals");
         rentalService.findActive().forEach(System.out::println);
     }
 
     public void showByMemberHandler(){
+        System.out.println();
         System.out.println("Show Rentals By Member");
         System.out.println("Please enter member id: ");
         Long memberId = Long.parseLong(scanner.nextLine());

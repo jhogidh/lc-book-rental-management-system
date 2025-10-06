@@ -14,6 +14,7 @@ public class MemberController {
     }
 
     public void showMenu(){
+        System.out.println();
         System.out.println("Welcome to Member Menu");
         System.out.println("1. Create Member");
         System.out.println("2. Update Member");
@@ -21,8 +22,8 @@ public class MemberController {
         System.out.println("4. Find Member By Id");
         System.out.println("5. Find All Members");
         System.out.println("0. Go back");
+        System.out.println();
         System.out.print("Please enter your choice: ");
-
         int choice = Integer.parseInt(scanner.nextLine());
         switch (choice){
             case 1:
@@ -50,6 +51,7 @@ public class MemberController {
     }
 
     public void createHandler(){
+        System.out.println();
         System.out.println("Create Member");
         System.out.println("Please enter email: ");
         String email = scanner.nextLine();
@@ -61,6 +63,7 @@ public class MemberController {
     }
 
     public void updateHandler(){
+        System.out.println();
         System.out.println("Update Member");
         System.out.println("Please enter id: ");
         Long id = Long.parseLong(scanner.nextLine());
@@ -79,6 +82,7 @@ public class MemberController {
     }
 
     public void deleteHandler(){
+        System.out.println();
         System.out.println("Delete Member");
         System.out.println("Please enter id: ");
         Long id = Long.parseLong(scanner.nextLine());
@@ -87,6 +91,7 @@ public class MemberController {
     }
 
     public void findByIdHandler(){
+        System.out.println();
         System.out.println("Find Member By Id");
         System.out.println("Please enter id: ");
         Long id = Long.parseLong(scanner.nextLine());
@@ -95,6 +100,7 @@ public class MemberController {
     }
 
     public void findAllHandler(){
+        System.out.println();
         System.out.println("Find All Members");
         memberService.findAll().forEach(System.out::println);
     }

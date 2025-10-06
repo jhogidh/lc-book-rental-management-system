@@ -27,11 +27,13 @@ public class Server {
 
     public void start(){
         while(true){
+            System.out.println();
             System.out.println("======== RENTAL BOOK SYSTEM ========");
             System.out.println("1. Member Menu");
             System.out.println("2. Book Menu");
             System.out.println("3. Rental Menu");
             System.out.println("0. EXIT");
+            System.out.println();
             System.out.print("Choose menu: ");
             int choice = Integer.parseInt(scanner.nextLine());
             switch (choice) {

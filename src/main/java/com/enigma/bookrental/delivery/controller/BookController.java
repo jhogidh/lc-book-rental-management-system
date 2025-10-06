@@ -14,12 +14,14 @@ public class BookController {
     }
 
     public void showMenu(){
+        System.out.println();
         System.out.println("Welcome to Book Menu");
         System.out.println("1. Create Book");
         System.out.println("2. Update Book");
         System.out.println("3. Find Book");
         System.out.println("4. Delete Book");
         System.out.println("0. Exit");
+        System.out.println();
         System.out.print("Please enter your choice: ");
         int choice = Integer.parseInt(scanner.nextLine());
         switch (choice){
@@ -30,6 +32,7 @@ public class BookController {
                 updateHandler();
                 break;
             case 3:
+                System.out.println();
                 System.out.println("Find Book");
                 System.out.println("1. find all");
                 System.out.println("2. find available");
@@ -37,6 +40,7 @@ public class BookController {
                 System.out.println("4. search by author");
                 System.out.println("5. find by id");
                 System.out.println("0. Go back");
+                System.out.println();
                 System.out.print("Please enter your choice: ");
                 int findChoice = Integer.parseInt(scanner.nextLine());
                 switch (findChoice){
@@ -73,6 +77,7 @@ public class BookController {
     }
 
     public void createHandler(){
+        System.out.println();
         System.out.println("Create Book");
         System.out.println("Please enter Title: ");
         String title = scanner.nextLine();
@@ -98,6 +103,7 @@ public class BookController {
     }
 
     public void updateHandler(){
+        System.out.println();
         System.out.println("Update Book");
         System.out.println("Please enter id: ");
         Long id = Long.parseLong(scanner.nextLine());
@@ -132,6 +138,7 @@ public class BookController {
     }
 
     public void deleteHandler(){
+        System.out.println();
         System.out.println("Delete Book");
         System.out.println("Please enter id: ");
         Long id = Long.parseLong(scanner.nextLine());
@@ -140,6 +147,7 @@ public class BookController {
     }
 
     public void findByIdHandler(){
+        System.out.println();
         System.out.println("Find Book By Id");
         System.out.println("Please enter id: ");
         Long id = Long.parseLong(scanner.nextLine());
@@ -148,16 +156,19 @@ public class BookController {
     }
 
     public void findAllHandler(){
+        System.out.println();
         System.out.println("Find All Books");
         bookService.findAll().forEach(System.out::println);
     }
 
     public void findAvailableHandler(){
+        System.out.println();
         System.out.println("Find Available Books");
         bookService.findAvailable().forEach(System.out::println);
     }
 
     public void searchByTitleHandler(){
+        System.out.println();
         System.out.println("Search By Title");
         System.out.println("Please enter title: ");
         String title = scanner.nextLine();
@@ -165,6 +176,7 @@ public class BookController {
     }
 
     public void searchByAuthorHandler(){
+        System.out.println();
         System.out.println("Search By Author");
         System.out.println("Please enter author: ");
         String author = scanner.nextLine();
