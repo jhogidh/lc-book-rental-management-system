@@ -22,7 +22,9 @@ public class MemberDAO implements BaseDAO<Member, Long>{
             }
             tx.commit();
         }catch (Exception e){
-            tx.rollback();
+            if(tx != null && tx.isActive() ){
+                tx.rollback();
+            }
             throw new RuntimeException("Error menyimpan member", e);
         }
     }
@@ -37,7 +39,7 @@ public class MemberDAO implements BaseDAO<Member, Long>{
         Member member = em.find(Member.class, id);
         if(member != null && Boolean.TRUE.equals(member.getIsDeleted())){
             System.out.println("Member dengan id " + id + " sudah dihapus/tidak aktif.");
-            return null;
+            return Optional.empty();
         }
         return Optional.ofNullable(member);
     }
@@ -54,7 +56,9 @@ public class MemberDAO implements BaseDAO<Member, Long>{
             }
             tx.commit();
         }catch (Exception e){
-            tx.rollback();
+            if(tx != null && tx.isActive() ){
+                tx.rollback();
+            }
             throw new RuntimeException("Error menghapus member", e);
         }
 

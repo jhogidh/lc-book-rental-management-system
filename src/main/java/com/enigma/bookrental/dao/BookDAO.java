@@ -23,7 +23,9 @@ public class BookDAO implements BaseDAO<Book, Long> {
             }
             tx.commit();
         }catch (Exception e){
-            tx.rollback();
+            if(tx != null && tx.isActive() ){
+                tx.rollback();
+            }
             throw new RuntimeException("Error menyimpan buku", e);
         }
     }
@@ -55,7 +57,9 @@ public class BookDAO implements BaseDAO<Book, Long> {
             }
             tx.commit();
         }catch (Exception e){
-            tx.rollback();
+            if(tx != null && tx.isActive() ){
+                tx.rollback();
+            }
             throw new RuntimeException("Error menghapus buku", e);
         }
     }
