@@ -10,6 +10,9 @@
 
         <!-- Register Entites-->
         <!-- register here-->
+        <class>com.enigma.bookrental.model.Book</class>
+        <class>com.enigma.bookrental.model.Member</class>
+        <class>com.enigma.bookrental.model.Rental</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
