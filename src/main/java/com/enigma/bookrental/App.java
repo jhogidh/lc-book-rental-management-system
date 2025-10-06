@@ -1,6 +1,7 @@
 package com.enigma.bookrental;
 
 import com.enigma.bookrental.config.JPAConfig;
+import com.enigma.bookrental.delivery.Server;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -14,11 +15,13 @@ public class App {
         // mvn clean compile --% exec:java -Dexec.mainClass=com.enigma.bookrental.App
 
 
-        try(var db = JPAConfig.getEm();){
-            log.info("Test Connection success");
-        }catch (Exception e){
-            log.error("Connection failed" + e.getMessage());
-        }
+        log.info("Starting application");
+
+        System.out.println();
+        Server server = Server.serve();
+        server.start();
+
+        log.info("Application stopped");
 
     }
 }
